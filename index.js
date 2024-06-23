@@ -124,7 +124,7 @@ async function run() {
             const result = await userCollection.updateOne(
                 { email }, { $set: userData }, { upsert: true });
             res.send(result);
-        })
+        });
 
         console.log("Database is connected");
     } finally {
