@@ -56,10 +56,10 @@ async function run() {
             res.send(result);
         });
 
-        app.get("/shoes", async (req, res) => {
-            const toysData = toysCollection.find();
-            const result = await toysData.toArray();
-            res.send(result);
+        app.get("/shoes", (req, res) => {
+            toysCollection.find().toArray().then(resultArray => {
+                res.send(resultArray);
+            })
         });
 
         app.get("/shoes/:id", async (req, res) => {
